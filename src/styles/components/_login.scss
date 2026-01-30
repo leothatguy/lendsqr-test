@@ -5,7 +5,7 @@
 @use '../variables' as *;
 @use '../mixins' as *;
 
-.login-page {
+.login {
 	min-height: 100vh;
 	display: grid;
 	grid-template-columns: 1fr;
@@ -13,50 +13,55 @@
 	@include lg {
 		grid-template-columns: 0.51fr 0.49fr;
 	}
-}
 
-.login-left {
-	display: none;
-	background-color: rgba($color-cyan, 0.05);
-	padding: 72px;
+	// Illustration Section (RightSection in TSX, but visual Left on Desktop)
+	&__illustration-section {
+		display: none;
+		background: linear-gradient(90deg, #ffffff 0%, #f7f7f7 100%);
+		padding: 72px;
 
-	@include lg {
-		@include flex-column;
-		justify-content: space-between;
+		@include lg {
+			@include flex-column;
+			justify-content: space-between;
+			display: flex;
+		}
 	}
 
 	&__logo {
 		height: 36px;
-		margin-bottom: 139px;
 	}
 
 	&__illustration {
 		width: 100%;
 		max-width: 600px;
-	}
-}
-
-.login-form {
-	padding: 40px 24px;
-	margin: auto;
-	@include flex-column;
-	align-items: center;
-	gap: 40px;
-
-	@include md {
-		padding: 64px 48px;
+		height: auto;
 	}
 
-	@include lg {
-		align-items: flex-start;
-		padding: 0 100px;
-		gap: 60px;
+	// Form Section (LeftSection in TSX)
+	&__form-section {
+		padding: 40px 24px;
+		margin: auto;
+		@include flex-column;
+		align-items: center;
+		gap: 40px;
+		width: 100%;
+
+		@include md {
+			padding: 64px 48px;
+		}
+
+		@include lg {
+			align-items: flex-start;
+			padding: 0 100px;
+			gap: 60px;
+		}
 	}
 
 	&__header {
 		@include flex-column;
 		gap: 10px;
 		text-align: center;
+		width: 100%;
 
 		@include lg {
 			text-align: left;
@@ -92,19 +97,21 @@
 		font-size: 14px;
 	}
 
-	&__field {
+	&__input-wrapper {
 		position: relative;
+		width: 100%;
 	}
 
 	&__input {
 		@include input-base;
+		width: 100%;
 
 		&--password {
 			padding-right: 80px;
 		}
 	}
 
-	&__toggle-password {
+	&__show-password {
 		position: absolute;
 		right: 16px;
 		top: 50%;
@@ -140,7 +147,7 @@
 		}
 	}
 
-	&__submit {
+	&__submit-button {
 		@include flex-center;
 		gap: 8px;
 		width: 100%;
