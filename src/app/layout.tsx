@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Sen, Nunito } from 'next/font/google';
+import { Sen, Work_Sans } from 'next/font/google';
 import '@/styles/globals.scss';
 
 const sen = Sen({
@@ -7,10 +7,9 @@ const sen = Sen({
 	subsets: ['latin'],
 });
 
-const nunito = Nunito({
-	variable: '--font-nunito',
+const workSans = Work_Sans({
+	variable: '--font-work-sans',
 	subsets: ['latin'],
-	// weight: ['400', '700', '800'],
 });
 
 export const metadata: Metadata = {
@@ -25,7 +24,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={`${sen.variable} ${nunito.variable}`}>{children}</body>
+			<body className={`${sen.variable} ${workSans.variable}`}>{children}</body>
 		</html>
 	);
 }

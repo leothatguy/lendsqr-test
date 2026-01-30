@@ -50,8 +50,8 @@ $breakpoint-lg: 1024px;
 $breakpoint-xl: 1280px;
 
 // ----- Typography -----
-$font-sen: 'Sen', sans-serif;
-$font-work-sans: 'Work Sans', sans-serif;
+$font-sen: var(--font-sen), sans-serif;
+$font-work-sans: var(--font-work-sans), sans-serif;
 
 // ----- Shadows -----
 $shadow-card: 0px 3px 5px rgba(0, 0, 0, 0.04);
