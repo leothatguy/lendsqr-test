@@ -1,0 +1,27 @@
+// ==============================================
+// DASHBOARD LAYOUT COMPONENT
+// ==============================================
+
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.dashboard-layout {
+	min-height: 100vh;
+	background-color: #fbfbfb;
+
+	&__main {
+		margin-top: 100px; // Header height
+
+		@include lg {
+			margin-left: $sidebar-width;
+		}
+	}
+
+	&__content {
+		padding: 20px;
+
+		@include lg {
+			padding: 60px;
+		}
+	}
+}

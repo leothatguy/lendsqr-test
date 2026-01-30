@@ -1,0 +1,75 @@
+// ==============================================
+// BASE - Reset and global defaults
+// ==============================================
+
+@use 'variables' as *;
+
+// ----- Box Sizing Reset -----
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+// ----- Margin Reset -----
+* {
+	margin: 0;
+}
+
+// ----- Body -----
+body {
+	background-color: $color-background;
+	color: $color-foreground;
+	font-family: $font-work-sans;
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+}
+
+// ----- Images -----
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+}
+
+// ----- Form Elements -----
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+// ----- Text Overflow -----
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	overflow-wrap: break-word;
+}
+
+// ----- Links -----
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+// ----- Lists -----
+ul,
+ol {
+	list-style: none;
+	padding: 0;
+}
+
+// ----- Button Reset -----
+button {
+	background: none;
+	border: none;
+	cursor: pointer;
+}

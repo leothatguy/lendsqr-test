@@ -1,0 +1,178 @@
+// ==============================================
+// LOGIN COMPONENT
+// ==============================================
+
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.login-page {
+	min-height: 100vh;
+	display: grid;
+	grid-template-columns: 1fr;
+
+	@include lg {
+		grid-template-columns: 0.51fr 0.49fr;
+	}
+}
+
+.login-left {
+	display: none;
+	background-color: rgba($color-cyan, 0.05);
+	padding: 72px;
+
+	@include lg {
+		@include flex-column;
+		justify-content: space-between;
+	}
+
+	&__logo {
+		height: 36px;
+		margin-bottom: 139px;
+	}
+
+	&__illustration {
+		width: 100%;
+		max-width: 600px;
+	}
+}
+
+.login-form {
+	padding: 40px 24px;
+	margin: auto;
+	@include flex-column;
+	align-items: center;
+	gap: 40px;
+
+	@include md {
+		padding: 64px 48px;
+	}
+
+	@include lg {
+		align-items: flex-start;
+		padding: 0 100px;
+		gap: 60px;
+	}
+
+	&__header {
+		@include flex-column;
+		gap: 10px;
+		text-align: center;
+
+		@include lg {
+			text-align: left;
+		}
+	}
+
+	&__title {
+		font-size: 40px;
+		font-weight: 800;
+		color: $color-blue;
+		font-family: $font-sen;
+		letter-spacing: -0.02em;
+	}
+
+	&__subtitle {
+		font-size: 20px;
+		color: $color-slate-blue;
+	}
+
+	&__form {
+		@include flex-column;
+		gap: 24px;
+		width: 100%;
+		max-width: 447px;
+	}
+
+	&__error {
+		background-color: rgba($status-blacklisted, 0.05);
+		border: 1px solid rgba($status-blacklisted, 0.2);
+		color: $status-blacklisted;
+		padding: 12px 16px;
+		border-radius: $radius-md;
+		font-size: 14px;
+	}
+
+	&__field {
+		position: relative;
+	}
+
+	&__input {
+		@include input-base;
+
+		&--password {
+			padding-right: 80px;
+		}
+	}
+
+	&__toggle-password {
+		position: absolute;
+		right: 16px;
+		top: 50%;
+		transform: translateY(-50%);
+		background: none;
+		border: none;
+		font-size: 12px;
+		font-weight: 600;
+		letter-spacing: 0.1em;
+		color: $color-cyan;
+		cursor: pointer;
+		@include transition(opacity);
+
+		&:hover {
+			opacity: 0.8;
+		}
+
+		&:disabled {
+			opacity: 0.5;
+		}
+	}
+
+	&__forgot-link {
+		font-size: 12px;
+		font-weight: 600;
+		letter-spacing: 0.1em;
+		color: $color-cyan;
+		text-transform: uppercase;
+		@include transition(opacity);
+
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+
+	&__submit {
+		@include flex-center;
+		gap: 8px;
+		width: 100%;
+		padding: 16px;
+		margin-top: 8px;
+		background-color: $color-cyan;
+		border: none;
+		border-radius: $radius-md;
+		font-size: 14px;
+		font-weight: 600;
+		letter-spacing: 0.1em;
+		color: white;
+		text-transform: uppercase;
+		cursor: pointer;
+		@include transition(opacity);
+
+		&:hover:not(:disabled) {
+			opacity: 0.9;
+		}
+
+		&:disabled {
+			opacity: 0.7;
+			cursor: not-allowed;
+		}
+	}
+
+	&__spinner {
+		width: 20px;
+		height: 20px;
+		border: 2px solid rgba(white, 0.3);
+		border-top-color: white;
+		border-radius: 50%;
+		animation: spin 1s linear infinite;
+	}
+}

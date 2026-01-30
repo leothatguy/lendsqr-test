@@ -1,0 +1,66 @@
+// ==============================================
+// NOT FOUND PAGE
+// ==============================================
+
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.not-found {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 60vh;
+	text-align: center;
+	padding: 20px;
+	animation: fade-in 300ms ease-out forwards;
+
+	&__icon-wrapper {
+		background-color: #fef2f2;
+		padding: 24px;
+		border-radius: 50%;
+		margin-bottom: 24px;
+	}
+
+	&__icon {
+		width: 64px;
+		height: 64px;
+		color: $status-blacklisted;
+	}
+
+	&__title {
+		font-size: 28px;
+		font-weight: 700;
+		color: $color-blue;
+		margin-bottom: 12px;
+	}
+
+	&__message {
+		font-size: 16px;
+		line-height: 1.5;
+		color: rgba($color-slate-blue, 0.8);
+		max-width: 400px;
+		margin-bottom: 32px;
+	}
+
+	&__link {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 48px;
+		padding: 0 32px;
+		background-color: $color-cyan;
+		border-radius: $radius-md;
+		color: white;
+		font-size: 14px;
+		font-weight: 600;
+		letter-spacing: 0.05em;
+		text-decoration: none;
+		box-shadow: 0 10px 25px rgba($color-cyan, 0.3);
+		@include transition(opacity, background-color);
+
+		&:hover {
+			opacity: 0.9;
+		}
+	}
+}

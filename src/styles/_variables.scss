@@ -1,0 +1,69 @@
+// ==============================================
+// DESIGN TOKENS - Lendsqr Dashboard
+// ==============================================
+
+// ----- Colors -----
+$color-blue: #213f7d;
+$color-slate-blue: #545f7d;
+$color-cyan: #39cdcc;
+$color-border: rgba(84, 95, 125, 0.15);
+$color-background: #ffffff;
+$color-foreground: #171717;
+
+// ----- Status Colors -----
+$status-active: #39cd62;
+$status-active-bg: rgba(57, 205, 98, 0.06);
+$status-inactive: #545f7d;
+$status-inactive-bg: rgba(84, 95, 125, 0.06);
+$status-pending: #e9b200;
+$status-pending-bg: rgba(233, 178, 0, 0.06);
+$status-blacklisted: #e4033b;
+$status-blacklisted-bg: rgba(228, 3, 59, 0.06);
+
+// ----- Stat Card Colors -----
+$card-pink: #df18ff;
+$card-pink-bg: rgba(223, 24, 255, 0.1);
+$card-purple: #5718ff;
+$card-purple-bg: rgba(87, 24, 255, 0.1);
+$card-orange: #f55f44;
+$card-orange-bg: rgba(245, 95, 68, 0.1);
+$card-red: #ff3366;
+$card-red-bg: rgba(255, 51, 102, 0.1);
+
+// ----- Sidebar -----
+$sidebar-bg: #ffffff;
+$sidebar-width: 283px;
+$active-bg: rgba(57, 205, 204, 0.06);
+$active-border: #39cdcc;
+
+// ----- Spacing -----
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 40px;
+
+// ----- Breakpoints -----
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+
+// ----- Typography -----
+$font-sen: 'Sen', sans-serif;
+$font-work-sans: 'Work Sans', sans-serif;
+
+// ----- Shadows -----
+$shadow-card: 0px 3px 5px rgba(0, 0, 0, 0.04);
+$shadow-dropdown: 3px 5px 20px rgba(0, 0, 0, 0.04);
+
+// ----- Border Radii -----
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 16px;
+$radius-full: 9999px;
+
+// ----- Transitions -----
+$transition-fast: 150ms ease;
+$transition-normal: 200ms ease;
+$transition-slow: 300ms ease;

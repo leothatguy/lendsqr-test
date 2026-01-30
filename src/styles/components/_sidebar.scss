@@ -1,0 +1,165 @@
+// ==============================================
+// SIDEBAR COMPONENT
+// ==============================================
+
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.sidebar {
+	&__overlay {
+		position: fixed;
+		inset: 0;
+		background-color: rgba(0, 0, 0, 0.5);
+		z-index: 30;
+
+		@include lg {
+			display: none;
+		}
+	}
+
+	&__container {
+		width: $sidebar-width;
+		background-color: $sidebar-bg;
+		box-shadow: 0 3px 5px rgba(0, 0, 0, 0.04);
+		padding: 40px 0 30px;
+		position: fixed;
+		top: 100px;
+		bottom: 0;
+		left: 0;
+		z-index: 50;
+		overflow-y: auto;
+		transition: transform $transition-slow;
+
+		// Mobile: hidden by default
+		transform: translateX(-100%);
+
+		&--open {
+			transform: translateX(0);
+		}
+
+		@include lg {
+			transform: translateX(0);
+		}
+	}
+
+	&__nav {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__section {
+		margin-bottom: 20px;
+	}
+
+	&__section-title {
+		padding: 10px 30px;
+		font-size: 12px;
+		font-weight: 500;
+		color: $color-blue;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	&__menu-list {
+		display: flex;
+		flex-direction: column;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		gap: 10px;
+	}
+
+	&__menu-item {
+		position: relative;
+	}
+
+	&__menu-link {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		padding: 10px 30px;
+		font-size: 16px;
+		color: rgba($color-blue, 0.6);
+		text-decoration: none;
+		@include transition(background-color, color);
+
+		&:hover {
+			background-color: rgba($active-bg, 0.5);
+			color: $color-blue;
+		}
+
+		&--active {
+			background-color: $active-bg;
+			color: $color-blue;
+			border-left: 3px solid $active-border;
+			opacity: 1;
+		}
+
+		&--switch-org {
+			color: $color-blue;
+			opacity: 1;
+
+			&:hover {
+				color: $color-blue;
+			}
+
+			// Ensure icon inside switch org is also opaque
+			.sidebar__menu-icon {
+				color: $color-blue;
+			}
+			.sidebar__menu-dropdown {
+				color: $color-blue;
+			}
+		}
+	}
+
+	&__menu-icon {
+		color: rgba($color-blue, 0.6);
+
+		&--active {
+			color: $color-blue;
+			opacity: 1;
+		}
+	}
+
+	&__menu-label {
+		flex: 1;
+	}
+
+	&__menu-dropdown {
+		color: rgba($color-blue, 0.6);
+	}
+
+	&__logout-section {
+		margin-top: 20px;
+		padding-top: 20px;
+		border-top: 1px solid rgba($color-blue, 0.1);
+	}
+
+	&__logout-button {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		padding: 10px 30px;
+		width: 100%;
+		font-size: 16px;
+		color: rgba($color-blue, 0.6);
+		background: none;
+		border: none;
+		cursor: pointer;
+		text-align: left;
+		@include transition(background-color, color);
+
+		&:hover {
+			background-color: rgba($active-bg, 0.5);
+			color: $color-blue;
+		}
+	}
+
+	&__version {
+		padding: 0 30px;
+		margin-top: 20px;
+		font-size: 12px;
+		color: rgba($color-blue, 0.6);
+	}
+}

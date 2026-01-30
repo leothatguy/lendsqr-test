@@ -1,0 +1,74 @@
+// ==============================================
+// USER ACTIONS MENU COMPONENT
+// ==============================================
+
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.user-actions-menu {
+	position: relative;
+
+	&__trigger {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+		background: none;
+		border: none;
+		cursor: pointer;
+		@include transition(background-color);
+
+		&:hover {
+			background-color: #f3f4f6;
+		}
+	}
+
+	&__dropdown {
+		position: absolute;
+		right: 0;
+		top: 35px;
+		z-index: 50;
+		width: 180px;
+		background-color: $color-background;
+		border: 1px solid rgba($color-slate-blue, 0.1);
+		border-radius: $radius-sm;
+		box-shadow: $shadow-dropdown;
+		padding: 10px 0;
+		animation: fade-in 100ms ease-out forwards;
+	}
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__item {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		width: 100%;
+		padding: 10px 20px;
+		font-size: 14px;
+		color: $color-slate-blue;
+		text-decoration: none;
+		text-align: left;
+		background: none;
+		border: none;
+		cursor: pointer;
+		@include transition(background-color);
+
+		&:hover {
+			background-color: #f5f5f5;
+			color: $color-blue;
+		}
+	}
+
+	&__icon {
+		width: 16px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}

@@ -1,0 +1,209 @@
+// ==============================================
+// HEADER COMPONENT
+// ==============================================
+
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 100px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: $color-background;
+	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.04);
+	z-index: 50;
+	padding: 0 20px;
+
+	@include lg {
+		padding: 0 30px;
+	}
+
+	&__left {
+		display: flex;
+		align-items: center;
+		gap: 20px;
+
+		@include lg {
+			gap: 60px;
+		}
+	}
+
+	&__logo {
+		height: 24px;
+		width: auto;
+
+		@include lg {
+			height: 30px;
+		}
+	}
+
+	&__search {
+		display: none;
+		align-items: center;
+
+		@include lg {
+			display: flex;
+		}
+	}
+
+	&__search-input {
+		width: 300px;
+		height: 40px;
+		padding: 0 20px;
+		border: 1px solid $color-border;
+		border-radius: 8px 0 0 8px;
+		font-size: 14px;
+		color: $color-slate-blue;
+		outline: none;
+		@include transition(border-color);
+
+		@include xl {
+			width: 400px;
+		}
+
+		&::placeholder {
+			color: rgba($color-slate-blue, 0.6);
+		}
+
+		&:focus {
+			border-color: $color-cyan;
+		}
+	}
+
+	&__search-button {
+		height: 40px;
+		width: 56px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: $color-cyan;
+		border: none;
+		border-radius: 0 8px 8px 0;
+		cursor: pointer;
+		@include transition(opacity);
+
+		&:hover {
+			opacity: 0.9;
+		}
+	}
+
+	&__right {
+		display: flex;
+		align-items: center;
+		gap: 20px;
+
+		@include lg {
+			gap: 47px;
+		}
+	}
+
+	&__docs-link {
+		display: none;
+		font-size: 16px;
+		color: $color-blue;
+		text-decoration: none;
+		@include transition(opacity);
+
+		@include sm {
+			display: block;
+		}
+
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+
+	&__notification {
+		position: relative;
+		background: none;
+		border: none;
+		cursor: pointer;
+		@include transition(opacity);
+
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+
+	&__profile {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+	}
+
+	&__avatar {
+		width: 32px;
+		height: 32px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 50%;
+		overflow: hidden;
+		background-color: rgba($color-cyan, 0.2);
+
+		@include lg {
+			width: 48px;
+			height: 48px;
+		}
+	}
+
+	&__avatar-initial {
+		font-size: 14px;
+		font-weight: 600;
+		color: $color-blue;
+
+		@include lg {
+			font-size: 18px;
+		}
+	}
+
+	&__profile-button {
+		display: flex;
+		align-items: center;
+		gap: 5px;
+		background: none;
+		border: none;
+		cursor: pointer;
+		@include transition(opacity);
+
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+
+	&__username {
+		display: none;
+		font-size: 16px;
+		font-weight: 500;
+		color: $color-blue;
+
+		@include sm {
+			display: block;
+		}
+	}
+
+	&__mobile-toggle {
+		display: block;
+		padding: 8px;
+		margin-left: -8px;
+		background: none;
+		border: none;
+		color: $color-blue;
+		border-radius: 6px;
+		cursor: pointer;
+		@include transition(background-color);
+
+		@include lg {
+			display: none;
+		}
+
+		&:hover {
+			background-color: #f3f4f6;
+		}
+	}
+}

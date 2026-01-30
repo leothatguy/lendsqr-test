@@ -1,0 +1,100 @@
+// ==============================================
+// FILTER POPUP COMPONENT
+// ==============================================
+
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.filter-popup {
+	position: absolute;
+	z-index: 9999;
+	width: 270px;
+	background-color: $color-background;
+	border: 1px solid rgba($color-blue, 0.1);
+	border-radius: $radius-sm;
+	box-shadow: $shadow-dropdown;
+	padding: 20px;
+	animation: fade-in 200ms ease-out forwards;
+
+	&__backdrop {
+		position: fixed;
+		inset: 0;
+		z-index: 9998;
+	}
+
+	&__form {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	&__field {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+	}
+
+	&__label {
+		font-size: 14px;
+		font-weight: 500;
+		color: $color-slate-blue;
+	}
+
+	&__input,
+	&__select {
+		height: 40px;
+		padding: 0 12px;
+		border: 1px solid rgba($color-blue, 0.2);
+		border-radius: $radius-md;
+		font-size: 14px;
+		color: $color-slate-blue;
+		outline: none;
+		background-color: transparent;
+		@include transition(border-color);
+
+		&::placeholder {
+			color: rgba($color-slate-blue, 0.6);
+		}
+
+		&:focus {
+			border-color: $color-cyan;
+		}
+	}
+
+	&__actions {
+		display: flex;
+		align-items: center;
+		gap: 14px;
+		padding-top: 10px;
+	}
+
+	&__button {
+		flex: 1;
+		height: 40px;
+		border-radius: $radius-md;
+		font-size: 14px;
+		font-weight: 500;
+		cursor: pointer;
+		@include transition(background-color);
+
+		&--reset {
+			background-color: transparent;
+			border: 1px solid $color-slate-blue;
+			color: $color-slate-blue;
+
+			&:hover {
+				background-color: rgba($color-slate-blue, 0.05);
+			}
+		}
+
+		&--filter {
+			background-color: $color-cyan;
+			border: none;
+			color: white;
+
+			&:hover {
+				background-color: rgba($color-cyan, 0.9);
+			}
+		}
+	}
+}

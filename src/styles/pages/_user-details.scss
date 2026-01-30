@@ -1,0 +1,356 @@
+// ==============================================
+// USER DETAILS PAGE
+// ==============================================
+
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.user-details {
+	animation: fade-in 300ms ease-out forwards;
+
+	// Back Link
+	&__back-link {
+		@include flex-start;
+		gap: 10px;
+		font-size: 14px;
+		color: $color-slate-blue;
+		margin-bottom: 20px;
+		@include transition(color);
+
+		@include lg {
+			font-size: 16px;
+			margin-bottom: 30px;
+		}
+
+		&:hover {
+			color: $color-blue;
+		}
+	}
+
+	// Page Header
+	&__header {
+		@include flex-between;
+		flex-wrap: wrap;
+		gap: 16px;
+		margin-bottom: 40px;
+
+		@include sm {
+			flex-wrap: nowrap;
+		}
+	}
+
+	&__title {
+		font-size: 24px;
+		font-weight: 500;
+		color: $color-blue;
+	}
+
+	&__actions {
+		@include flex-column;
+		gap: 20px;
+		width: 100%;
+
+		@include sm {
+			flex-direction: row;
+			width: auto;
+		}
+	}
+
+	&__action-button {
+		width: 100%;
+		padding: 10px 16px;
+		border: 1px solid;
+		border-radius: $radius-md;
+		font-size: 14px;
+		font-weight: 600;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		white-space: nowrap;
+		cursor: pointer;
+		@include transition(background-color);
+
+		@include sm {
+			width: auto;
+		}
+
+		&--blacklist {
+			border-color: $status-blacklisted;
+			color: $status-blacklisted;
+			background: none;
+
+			&:hover:not(:disabled) {
+				background-color: rgba($status-blacklisted, 0.05);
+			}
+		}
+
+		&--activate {
+			border-color: $color-cyan;
+			color: $color-cyan;
+			background: none;
+
+			&:hover:not(:disabled) {
+				background-color: rgba($color-cyan, 0.05);
+			}
+		}
+
+		&:disabled {
+			opacity: 0.5;
+			cursor: not-allowed;
+			border-color: #ccc;
+			color: #999;
+		}
+	}
+
+	// Profile Card
+	&__profile-card {
+		@include card;
+		margin-bottom: 30px;
+	}
+
+	&__profile-header {
+		@include flex-column;
+		align-items: center;
+		gap: 15px;
+		padding: 30px 20px 0;
+
+		@include md {
+			flex-direction: row;
+			align-items: flex-start;
+			gap: 20px;
+		}
+
+		@include lg {
+			padding: 40px 30px 0;
+		}
+	}
+
+	&__avatar {
+		@include flex-center;
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+		overflow: hidden;
+		background-color: rgba($color-blue, 0.1);
+		flex-shrink: 0;
+	}
+
+	&__profile-info {
+		@include flex-column;
+		gap: 20px;
+		align-items: center;
+		width: 100%;
+		text-align: center;
+
+		@include md {
+			flex-direction: row;
+			align-items: center;
+			text-align: left;
+			gap: 30px;
+		}
+	}
+
+	&__name-section {
+		padding-right: 30px;
+		min-width: 140px;
+
+		@include md {
+			border-right: 1px solid rgba($color-slate-blue, 0.2);
+		}
+	}
+
+	&__name {
+		font-size: 22px;
+		font-weight: 500;
+		color: $color-blue;
+		margin-bottom: 8px;
+	}
+
+	&__user-id {
+		font-size: 14px;
+		color: $color-slate-blue;
+	}
+
+	&__tier-section {
+		padding: 0 30px;
+
+		@include md {
+			border-right: 1px solid rgba($color-slate-blue, 0.2);
+		}
+	}
+
+	&__tier-label {
+		font-size: 14px;
+		color: $color-slate-blue;
+		margin-bottom: 12px;
+	}
+
+	&__tier-stars {
+		@include flex-center;
+		gap: 4px;
+
+		@include md {
+			justify-content: flex-start;
+		}
+	}
+
+	&__balance-section {
+		padding-left: 30px;
+	}
+
+	&__balance {
+		font-size: 22px;
+		font-weight: 500;
+		color: $color-blue;
+		margin-bottom: 8px;
+	}
+
+	&__bank {
+		font-size: 12px;
+		color: $color-slate-blue;
+	}
+
+	// Tabs
+	&__tabs {
+		@include flex-start;
+		gap: 0;
+		padding: 0 20px;
+		margin: 0 -20px;
+		overflow-x: auto;
+		@include scrollbar-hide;
+
+		@include lg {
+			padding: 0 30px;
+			margin: 0 -30px;
+		}
+	}
+
+	&__tab {
+		position: relative;
+		padding: 15px 15px;
+		font-size: 14px;
+		color: $color-slate-blue;
+		white-space: nowrap;
+		background: none;
+		border: none;
+		cursor: pointer;
+		@include transition(color);
+
+		@include lg {
+			padding: 15px 25px;
+			font-size: 16px;
+		}
+
+		&:hover {
+			color: rgba($color-cyan, 0.8);
+		}
+
+		&--active {
+			color: $color-cyan;
+
+			&::after {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				height: 4px;
+				background-color: $color-cyan;
+				border-radius: 100px 100px 0 0;
+			}
+		}
+	}
+
+	// Details Card
+	&__details-card {
+		@include card;
+		padding: 20px;
+
+		@include lg {
+			padding: 30px;
+		}
+	}
+
+	&__section {
+		padding-bottom: 30px;
+		border-bottom: 1px solid rgba($color-blue, 0.1);
+		margin-bottom: 30px;
+
+		&:last-child {
+			padding-bottom: 0;
+			border-bottom: none;
+			margin-bottom: 0;
+		}
+	}
+
+	&__section-title {
+		font-size: 16px;
+		font-weight: 500;
+		color: $color-blue;
+		margin-bottom: 30px;
+	}
+
+	&__info-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 30px;
+
+		@include sm {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@include lg {
+			grid-template-columns: repeat(3, 1fr);
+		}
+
+		@include xl {
+			grid-template-columns: repeat(5, 1fr);
+		}
+	}
+
+	&__info-grid--employment {
+		@include xl {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+
+	&__info-item {
+		&--wide {
+			grid-column: span 1;
+
+			@include sm {
+				grid-column: span 2;
+			}
+		}
+	}
+
+	&__info-label {
+		font-size: 12px;
+		color: $color-slate-blue;
+		text-transform: uppercase;
+		margin-bottom: 8px;
+	}
+
+	&__info-value {
+		font-size: 16px;
+		font-weight: 500;
+		color: $color-slate-blue;
+		word-wrap: break-word;
+
+		&--email {
+			color: $color-cyan;
+		}
+	}
+
+	// Guarantor Section
+	&__guarantor {
+		padding-bottom: 30px;
+		margin-bottom: 30px;
+		border-bottom: 1px solid rgba($color-blue, 0.1);
+
+		&:last-child {
+			padding-bottom: 0;
+			margin-bottom: 0;
+			border-bottom: none;
+		}
+	}
+}

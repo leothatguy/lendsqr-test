@@ -1,0 +1,32 @@
+// ==============================================
+// USERS PAGE
+// ==============================================
+
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.users-page {
+	animation: fade-in 500ms ease-out forwards;
+
+	&__title {
+		font-size: 24px;
+		font-weight: 500;
+		color: $color-blue;
+		margin-bottom: 40px;
+	}
+
+	&__stats-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 26px;
+		margin-bottom: 40px;
+
+		@include sm {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@include xl {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+}
