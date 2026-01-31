@@ -17,23 +17,28 @@
 	// Illustration Section (RightSection in TSX, but visual Left on Desktop)
 	&__illustration-section {
 		display: none;
-		background: linear-gradient(90deg, #ffffff 0%, #f7f7f7 100%);
+		// Left-to-right gradient: White to Light Greys
+		background: linear-gradient(90deg, #ffffff 0%, #fefefe 95%, #fdfdfd 97%, #fcfcfc 100%);
 		padding: 72px;
 
 		@include lg {
 			@include flex-column;
-			justify-content: space-between;
 			display: flex;
+			position: relative;
+			justify-content: center;
 		}
 	}
 
 	&__logo {
 		height: 36px;
+		position: absolute;
+		top: 72px;
+		left: 72px;
+		margin: 0;
 	}
 
 	&__illustration {
 		width: 100%;
-		max-width: 600px;
 		height: auto;
 	}
 
